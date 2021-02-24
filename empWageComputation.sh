@@ -28,7 +28,7 @@ do
 	fi
 
 TotalWage=$(($res+$TotalWage))
-echo  $res $TotalWage
+echo  $workingDay"="$res "and"$TotalWage
 done
 
 

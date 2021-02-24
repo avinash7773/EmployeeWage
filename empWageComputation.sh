@@ -2,20 +2,33 @@
 
 echo "Wel-Come"
 
-ratePerHour=20
-TotalSalery=0
+TotalworkingHours=0
 workingDay=1
-while(($workingDay<=20 ))
+function getworkingHour(){
+	if(($1 == 1))
+	then
+		workinghoursPerDay=8
+	else
+		workinghoursPerDay=0
+	fi
+	TotalWorkingHours=$(( $TotalWorkingHours+$workinghoursPerDay ))
+
+	echo $TotalWorkingHours
+}
+
+while(($workingDay<=20))
 do
 	random=$((RANDOM%2))
-	if(($random==1))
+	TotalWorkingHours=$( getworkingHour $((random)) )
+
+	if(( $random == 1 ))
 	then
-		workingHourPerDay=8
-		salery=$(( $ratePerHour*$workingHourPerDay ))
-		TotalSalery=$(( $salery+$TotalSalery ))
 		((workingDay++))
-	else
-		workingHourPerDay=0
 	fi
+
+
 done
-echo $TotalSalery
+
+echo $TotalWorkingHours
+
+
